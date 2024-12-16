@@ -8,6 +8,8 @@ public class Puntuation : MonoBehaviour
     float _puntuation=0;
 
     public TMP_Text puntuationText;
+    public TMP_Text timerText;
+
     private float _timeRemaining = 60;
     private bool _timerIsRunning = false;
 
@@ -60,6 +62,7 @@ public class Puntuation : MonoBehaviour
             if (_timeRemaining > 0)
             {
                 _timeRemaining -= Time.deltaTime;
+                timerText.text = _timeRemaining.ToString("F0");
             }
             else
             {

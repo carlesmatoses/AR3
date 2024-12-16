@@ -49,6 +49,7 @@ public class BallGoal : MonoBehaviour
 			weight = Random.Range(0.06f, 0.12f);
 			float t = Mathf.InverseLerp(0.06f, 0.12f, weight);
 			SetColor(Color.Lerp(Color.red, Color.green, t));
+			Destroy(other.gameObject);
 		}
 	}
 }
