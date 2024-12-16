@@ -38,7 +38,7 @@ public class GoalSpawner : MonoBehaviour
 			
 			Transform ins = Instantiate(goalPrefab, new Vector3(x, c.y, z), Quaternion.identity);
 			var goal = ins.GetComponent<BallGoal>();
-			goal.SetColor(Color.red);
+			//goal.SetColor(Color.red);
 			goals.Add(ins);
 		}
 
