@@ -11,6 +11,7 @@ public class BallGoal : MonoBehaviour
 	// Start is called before the first frame update
 	void Awake()
 	{
+		puntuation = FindFirstObjectByType<Puntuation>();
 		mr = GetComponent<MeshRenderer>();
 		weight = Random.Range(0.06f, 0.12f);
 		float t = Mathf.InverseLerp(0.06f, 0.12f, weight);
@@ -30,7 +31,7 @@ public class BallGoal : MonoBehaviour
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag("Ball")) {
 			var rb = other.GetComponent<Rigidbody>();
-			if (rb.velocity.y > -0.01f) return;
+			//if (rb.velocity.y > -0.01f) return;
 
 			Vector3 ballScale = other.transform.localScale;
 			float ballSize = ballScale.x; // Assuming the ball is uniformly scaled

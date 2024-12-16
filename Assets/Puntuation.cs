@@ -31,7 +31,8 @@ public class Puntuation : MonoBehaviour
         _timerIsRunning = false;
         _timeRemaining = 60;
         _puntuation = 0;
-        puntuationText.text = _puntuation.ToString();
+        puntuationText.text = (_puntuation * 100).ToString("F0");
+		timerText.text = "Time remaining: 0";
 
         GameObject[] balls = GameObject.FindGameObjectsWithTag("Ball");
         foreach (GameObject ball in balls)
@@ -62,7 +63,7 @@ public class Puntuation : MonoBehaviour
             if (_timeRemaining > 0)
             {
                 _timeRemaining -= Time.deltaTime;
-                timerText.text = _timeRemaining.ToString("F0");
+                timerText.text = "Time remaining: "+ _timeRemaining.ToString("F0");
             }
             else
             {
@@ -79,7 +80,7 @@ public class Puntuation : MonoBehaviour
     {
         if(!_timerIsRunning) return;
         _puntuation += x;
-        puntuationText.text = _puntuation.ToString();
+        puntuationText.text = (_puntuation * 100).ToString("F0");
 
     }
 
