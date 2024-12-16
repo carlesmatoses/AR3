@@ -13,6 +13,8 @@ public class BallGoal : MonoBehaviour
 	{
 		mr = GetComponent<MeshRenderer>();
 		weight = Random.Range(0.06f, 0.12f);
+		float t = Mathf.InverseLerp(0.06f, 0.12f, weight);
+		SetColor(Color.Lerp(Color.red, Color.green, t));
 	}
 
 	// Update is called once per frame
@@ -29,7 +31,6 @@ public class BallGoal : MonoBehaviour
 		if (other.CompareTag("Ball")) {
 			var rb = other.GetComponent<Rigidbody>();
 			if (rb.velocity.y > -0.01f) return;
-			mr.material.color = Color.green;
 
 			Vector3 ballScale = other.transform.localScale;
 			float ballSize = ballScale.x; // Assuming the ball is uniformly scaled
@@ -46,6 +47,8 @@ public class BallGoal : MonoBehaviour
 			}
 
 			weight = Random.Range(0.06f, 0.12f);
+			float t = Mathf.InverseLerp(0.06f, 0.12f, weight);
+			SetColor(Color.Lerp(Color.red, Color.green, t));
 		}
 	}
 }
