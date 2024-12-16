@@ -5,28 +5,47 @@ using UnityEngine;
 public class BallGoal : MonoBehaviour
 {
 	MeshRenderer mr;
-	
-    // Start is called before the first frame update
-    void Awake()
-    {
-        mr = GetComponent<MeshRenderer>();
-    }
+	Puntuation puntuation;
+	float weight;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-	
+	// Start is called before the first frame update
+	void Awake()
+	{
+		mr = GetComponent<MeshRenderer>();
+		weight = Random.Range(0.06f, 0.12f);
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		
+	}
+
 	public void SetColor(Color color) {
 		mr.material.color = color;
 	}
-	
+
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag("Ball")) {
 			var rb = other.GetComponent<Rigidbody>();
 			if (rb.velocity.y > -0.01f) return;
 			mr.material.color = Color.green;
+
+			Vector3 ballScale = other.transform.localScale;
+			float ballSize = ballScale.x; // Assuming the ball is uniformly scaled
+
+			if (Mathf.Approximately(ballSize, weight)) {
+				// User receives one point
+				Debug.Log("User receives one point");
+				puntuation.IncreasePuntuation(1);
+			} else {
+				// Subtract the difference
+				float difference = 1 - Mathf.Abs(ballSize - weight)*(1/0.06);
+				Debug.Log($"Subtracting {difference} points");
+				puntuation.IncreasePuntuation(difference);
+			}
+
+			weight = Random.Range(0.06f, 0.12f);
 		}
 	}
 }
