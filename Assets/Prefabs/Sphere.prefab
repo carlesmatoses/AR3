@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2459378361331219453}
   - component: {fileID: 1260914353398952715}
   - component: {fileID: 6213574199583981083}
+  - component: {fileID: 8025048775515242286}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Ball
@@ -292,3 +293,15 @@ MonoBehaviour:
   m_MinimumScaleRatio: 1
   m_MaximumScaleRatio: 2
   m_ScaleMultiplier: 1
+--- !u!114 &8025048775515242286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631057031591797472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdecf9d840380fb4385c96d912d982d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

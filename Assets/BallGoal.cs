@@ -40,7 +40,7 @@ public class BallGoal : MonoBehaviour
 				puntuation.IncreasePuntuation(1);
 			} else {
 				// Subtract the difference
-				float difference = 1 - Mathf.Abs(ballSize - weight)*(1/0.06);
+				float difference = 1 - Mathf.Abs(ballSize - weight)*(1f/0.06f);
 				Debug.Log($"Subtracting {difference} points");
 				puntuation.IncreasePuntuation(difference);
 			}
