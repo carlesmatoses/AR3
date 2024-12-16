@@ -22,4 +22,6 @@ public class Ball : MonoBehaviour
         Color color = Color.Lerp(Color.red, Color.green, t);
         ballRenderer.material.color = color;
     }
+
+
 }
